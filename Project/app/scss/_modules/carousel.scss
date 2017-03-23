@@ -1,0 +1,141 @@
+/* Nike Mens - Prototype
+ *
+ *  @module    Nike Hero Carousel
+ *  @project   Nike Mens Prototype
+ *  @auth      Josh Pope
+ */
+
+@import '../_variables/nike';
+@import '../_partials/mixins';
+
+/* Carousel base class */
+#nke-carousel.carousel
+{
+    
+    /* the carousel contains 3 slides, but can contain as many as it can handle */
+    .first-slide, .second-slide, .third-slide
+    {
+       width:100%;
+       height:100%;
+
+       background-position-y:107px;
+    }
+
+    /* all slide image assets are defined in _variables/nike */
+    .first-slide
+    {
+       background:url($slide-1-asset) no-repeat 50% 50% fixed;
+       background-size:cover;
+    }
+    .second-slide
+    {
+       background:url($slide-2-asset)  no-repeat 50% 50% fixed;
+       background-size:cover;
+    }
+    .third-slide
+    {
+       background:url($slide-3-asset)  no-repeat 50% 50% fixed;
+       background-size:cover;
+    }
+
+
+    /* carousel indicators 
+       - the small circles at the foot of the slider. used as navigation, and a guide to current location within the slider */
+    .carousel-indicators
+    {
+       bottom:10px;
+    }
+
+
+    .carousel-indicators li,
+    .carousel-indicators li:active,
+    .carousel-indicators .active
+    {
+       width:6px;
+       height:6px;
+       margin-top:0;
+       margin-right:5px;
+    }
+
+   .item
+   {
+      height:calc(100vh - 214px);
+      min-height:500px;
+
+      background-color:#fff;
+      .carousel-caption
+      {
+         top:200px;
+         right:50px;
+
+         overflow:hidden;
+
+         height:200px;
+         min-height:0;
+         margin:0;
+         padding:0;
+
+         text-align:right;
+
+         text-shadow:none;
+      }
+   }
+   .right span,
+   .left span
+   {
+      position:absolute;
+      top:35vh;
+
+      width:40px;
+
+      background-image:none;
+   }
+   .left span
+   {
+      left:0;
+   }
+   .right span
+   {
+      right:0;
+   }
+   .right,
+   .left,
+   .right:hover,
+   .left:hover
+   {
+      background:none !important;
+   }
+}
+
+
+/*
+ * Mobile Carousel Responsive Updates
+ *    For mobile devices, modify the slider indicators into truly
+ *    useful touch navigation elements, more clearly indicate location
+ *    within the slider queue, and make the left/right navigation arrows
+ *    more clear
+*/
+@media screen and (max-width: 767px)
+{
+    #nke-carousel.carousel {
+      .left, .right {
+        span {
+          font-size: 50px;
+          margin-top: -25px;
+        }
+      }
+    }
+   .carousel-caption
+   {
+      right:35px; /* at the smallest mobile size, we just want to very finely adjust the margin of the header copy, shifting it by 15px. It is done this way because using xs, sm, etc in bootstrap do not afford this level of control. */
+   }
+   .carousel-indicators .active,
+   .carousel-indicators li,
+   .carousel-indicators li:active
+   {
+      /* enlarge buttons, adjust the spacing between them. this provides significant usability enhancement with nominal code and zero resources */
+      width:36px !important;
+      height:22px !important;
+      margin-right:16px !important;
+   }
+}

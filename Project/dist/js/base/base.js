@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#nke-carousel").swiperight(function(){$(this).carousel("prev")}),$("#nke-carousel").swipeleft(function(){$(this).carousel("next")})});

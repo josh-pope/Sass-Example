@@ -1,0 +1,172 @@
+/* Nike Mens - Prototype
+ *
+ *	Base CSS file
+ *
+ */
+
+@import '../_variables/nike';
+@import '../_partials/mixins';
+
+/* brand elements */
+#logo
+{
+   width:70px;
+   height:70px;
+
+   background-image:url($logo); /* base64 encoded logo */
+   background-repeat:no-repeat;
+   background-size:70px 70px;
+}
+
+
+
+/* structure 
+*/
+body
+{
+   overflow:hidden;
+
+   color:#fff;
+}
+
+
+.header-wrapper
+{
+   height:38px;
+
+   border-bottom:1px solid #d1d1d1;
+}
+
+
+.nke-top-right
+{
+   padding-left:15px !important;
+
+   white-space:nowrap;
+}
+.header-row-two
+{
+   height:70px;
+
+   border-bottom:1px solid #d1d1d1;
+}
+
+
+
+
+
+#menu-small
+{
+   float:right;
+
+   width:80px;
+   height:50px;
+
+   opacity:.8;
+   background:url(../assets/img/threelines.png) no-repeat;
+   background-size:80px 50px;
+}
+
+
+
+/* elements */
+
+.btn-primary
+{
+   font-family:$brand-font-header;
+}
+
+
+/* nav */
+
+.navbar-row-one
+{
+	position:relative;
+   z-index:20;
+   top:0;
+   right:0;
+   left:0;
+   > .container
+   {
+      padding-right:0;
+      padding-left:0;
+   }
+   .navbar
+   {
+      padding-right:15px;
+      padding-left:15px;
+      .container
+      {
+         width:auto;
+      }
+   }
+}
+
+/* bootstrap overrides */
+.clear-margin
+{
+   margin:0;
+   padding:0;
+}
+
+.divider
+{
+   line-height:37px;
+
+   min-width:100px;
+
+   text-align:center;
+
+   border-right:1px solid #d1d1d1;
+}
+
+.no-gutter > [class*='col-sm']
+{
+   padding-left:0;
+}
+
+.align-middle
+{
+   padding-top:8px;
+}
+
+
+/* basic additions & utilities to the bootstrap tools */
+
+.round /* round edges on header prototype filler images */
+{
+   border-radius:4px;
+}
+
+/* normally i use classes like the next four in a sass mixin, to generate padding and margins. but I did not need that dynamic mixin here, so
+	I dropped these in as they are helpful utilities */
+.pad-r--10
+{
+   margin-right:10px;
+}
+.pad-r--20
+{
+   margin-right:20px;
+}
+.pad-l--10
+{
+   margin-left:10px;
+}
+.pad-l--20
+{
+   margin-left:20px;
+}
+
+/* override semantic type elements */
+h1,
+h2,
+h3
+{
+   @include nke-header-type(2.5em);
+   text-rendering:geometricPrecision; /* this tends to be a good solution to aliasing problems for specific fonts */
+}
+
+p
+{
+   @include nke-subheader-type(.8em);
+}
